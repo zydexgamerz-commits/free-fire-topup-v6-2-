@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Fire Top Up</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site-header"><div class="brand"><div class="brand-mark">🔥</div><div><b id="brandName">Free Fire Top Up</b><small>Center</small></div></div><button class="menu" onclick="document.body.classList.toggle('menu-open')">☰</button></header>
+<main>
+<section class="hero"><div class="hero-copy"><span class="eyebrow">FAST • SIMPLE • SECURE</span><h1>Top up your account<br><em>in seconds.</em></h1><p>Verify your in-game UID, choose a pack and pay using the displayed QR code.</p><a href="#verify" class="hero-btn">Start Top Up ↓</a></div><div class="hero-art">💎</div></section>
+<section class="promo"><div class="promo-icon">💎</div><div><b>Free Fire</b><span>100% Secure Payment • Manual verification</span></div><strong>TOP UP</strong></section>
+
+<section id="verify" class="verify-section"><div class="section-heading"><h2>Verify your <em>UID</em></h2><p>Enter your in-game User ID. We'll fetch your account details before you shop.</p></div>
+<div class="verify-card"><label>In-game UID</label><div class="uid-line"><span>🎮</span><input id="uid" inputmode="numeric" maxlength="10" placeholder="e.g. 1234567890"></div><small>Your UID is shown on your in-game profile.</small><div class="region-line"><select id="region"><option value="ind">🇮🇳 India (IND)</option><option value="pk">🇵🇰 Pakistan (PK)</option><option value="bd">🇧🇩 Bangladesh (BD)</option></select><button id="check">Verify UID</button></div><div id="uidStatus" class="status">Enter your UID and select your account region.</div></div>
+</section>
+
+<section class="how"><div class="section-heading"><h2>How it <em>works</em></h2></div><div class="how-grid"><div><i>1</i><h3>Enter UID</h3><p>Verify your Free Fire account instantly.</p></div><div><i>2</i><h3>Pick a pack</h3><p>Choose diamonds or a pass.</p></div><div><i>3</i><h3>Pay securely</h3><p>Scan the QR for the exact amount.</p></div><div><i>4</i><h3>Get it instantly</h3><p>We manually verify your payment and process the order.</p></div></div></section>
+
+<section id="store" class="store"><div id="playerBar" class="player-bar hidden"></div><div class="section-heading"><h2>Top Up <em>Centre</em></h2><p>Pick a pack — delivered to your verified account.</p></div><div class="tabs"><button class="tab active" data-mode="diamonds">💎 Diamonds</button><button class="tab" data-mode="passes">🎟️ Passes</button></div><div id="products" class="product-grid"></div></section>
+
+<section class="faq"><div class="section-heading"><h2>Frequently asked <em>questions</em></h2></div><div class="faq-list"><button onclick="toggleFaq(this)">Is this safe and genuine?<b>+</b><span>Never share your game password. We only use your UID for account lookup.</span></button><button onclick="toggleFaq(this)">How fast is delivery?<b>+</b><span>Orders are manually checked after payment and then processed.</span></button><button onclick="toggleFaq(this)">What if my UID is wrong?<b>+</b><span>Do not pay. Re-enter and verify the correct UID before ordering.</span></button><button onclick="toggleFaq(this)">Which payment methods are supported?<b>+</b><span>The checkout shows the QR code configured by the store administrator.</span></button></div></section>
+</main>
+<footer><div class="footer-brand">🔥 <b id="footerName">Free Fire Top Up</b><small>Genuine top-ups delivered to your verified UID.</small></div><div><b>Store</b><a href="#store">Diamonds</a><a href="#store">Passes</a></div><div><b>Help</b><a href="#verify">Home</a><a href="#faq">FAQ</a></div><div><b>Admin</b><a href="/admin">Admin panel</a></div></footer>
+
+<div id="verifyModal" class="overlay hidden"><div class="modal account-modal"><button class="x" onclick="closeModal('verifyModal')">×</button><div class="modal-icon">🎮</div><span class="verified">✓ VERIFIED ACCOUNT</span><h2 id="playerName">Player</h2><p>🎉 Congratulations — your account is ready!</p><div class="stats"><div><b id="pLevel">—</b><small>LEVEL</small></div><div><b id="pRegion">—</b><small>REGION</small></div><div><b id="pLikes">—</b><small>LIKES</small></div></div><div class="details"><span>UID <b id="pUid">—</b></span><span>Clan <b>—</b></span></div><button class="cta" onclick="proceedStore()">Proceed to Store →</button><button class="text-btn" onclick="closeModal('verifyModal')">Not my account? Re-enter UID</button></div></div>
+
+<div id="confirmModal" class="overlay hidden"><div class="modal"><button class="x" onclick="closeModal('confirmModal')">×</button><h2>Confirm order</h2><p>Review your top-up before paying.</p><div class="summary"><span>Account <b id="cAccount"></b></span><span>UID <b id="cUid"></b></span><span>Item <b id="cItem"></b></span><hr><span>Total <strong id="cTotal"></strong></span></div><button class="cta" onclick="createOrder()">Proceed to Pay →</button><button class="text-btn" onclick="closeModal('confirmModal')">Cancel</button></div></div>
+
+<div id="qrModal" class="overlay hidden"><div class="modal qr-modal"><button class="x" onclick="closeModal('qrModal')">×</button><h2>Scan & Pay</h2><p>Pay the <b>exact amount</b>, then tap "I have paid".</p><div id="qrBox" class="qr-box"><div id="qrEmpty">QR code not configured yet.</div></div><strong id="qrAmount" class="big-price"></strong><div class="summary"><span>Account <b id="qAccount"></b></span><span>UID <b id="qUid"></b></span><span>Item <b id="qItem"></b></span><span>Order <b id="qOrder"></b></span></div><button class="cta" onclick="markPaid()">✓ I have paid</button><small class="note">Payment status stays pending until the administrator verifies it.</small></div></div>
+
+<div id="toast" class="toast"></div>
+<script src="/app.js"></script></body></html>
