@@ -1,6 +1,6 @@
 {
-  "name": "free-fire-topup-v7",
-  "version": "1.0.0",
+  "name": "free-fire-topup-free-render",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "start": "node server.js"
@@ -8,5 +8,7 @@
   "engines": {
     "node": ">=18"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0"
+  }
 }

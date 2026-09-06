@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: free-fire-topup
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: SUPABASE_STORAGE_BUCKET
+        value: uploads
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: UID_VERIFY_API_KEY
+        sync: false
+      - key: UID_VERIFY_USERUID
+        sync: false
+      - key: UID_SUPPORTED_REGIONS
+        value: ind,pk,bd
